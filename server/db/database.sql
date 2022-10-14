@@ -17,3 +17,6 @@ VALUES
 (4,
 'Max',
 1500);
+
+
+SELECT * FROM employee WHERE idEmployee=1;
