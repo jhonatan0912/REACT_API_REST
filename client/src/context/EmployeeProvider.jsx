@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { getEmployeesRequest, deleteEmployeeRequest } from "../api/employee.api";
+import { getEmployeesRequest, deleteEmployeeRequest, createEmployeeRequest } from "../api/employee.api";
 import { EmployeeContext } from "./../context/EmployeeContext.jsx";
 
 
@@ -32,5 +32,14 @@ export const EmployeeContextProvider = ({ children }) => {
 
   }
 
-  return <EmployeeContext.Provider value={{ employees, loadEmployees, deleteEmployee }}> {children} </EmployeeContext.Provider>
+  const createEmployee = async (employee) => {
+    try {
+      await createEmployeeRequest(employee)
+      // setEmployees([...employees, response.data])
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  return <EmployeeContext.Provider value={{ employees, loadEmployees, deleteEmployee, createEmployee }}> {children} </EmployeeContext.Provider>
 }

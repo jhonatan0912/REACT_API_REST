@@ -1,12 +1,11 @@
 import React from 'react'
 import { Form, Formik } from "formik";
-import { createEmployeeRequest } from "./../api/employee.api.js";
-import { useEmployee } from './../context/EmployeeProvider'
+import { useEmployee } from "./../context/EmployeeProvider.jsx";
+
 
 function EmployeeForm() {
 
-  const { text } = useEmployee()
-  console.log(text);
+  const { createEmployee } = useEmployee()
 
   return (
     <div>
@@ -18,13 +17,8 @@ function EmployeeForm() {
         }}
         onSubmit={async (values, actions) => {
           console.log(values);
-          try {
-            const response = await createEmployeeRequest(values)
-            console.log(response);
-            actions.resetForm()
-          } catch (error) {
-
-          }
+          createEmployee(values)
+          actions.resetForm()
         }}
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
