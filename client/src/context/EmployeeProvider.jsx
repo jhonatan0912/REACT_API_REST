@@ -1,5 +1,11 @@
 import { useContext, useState } from "react";
-import { getEmployeesRequest, deleteEmployeeRequest, createEmployeeRequest } from "../api/employee.api";
+import {
+  getEmployeesRequest,
+  deleteEmployeeRequest,
+  createEmployeeRequest,
+  getEmployeeRequest,
+  updateEmployeeRequest
+} from "../api/employee.api";
 import { EmployeeContext } from "./../context/EmployeeContext.jsx";
 
 
@@ -22,14 +28,13 @@ export const EmployeeContextProvider = ({ children }) => {
     setEmployees(response.data);
   }
 
-  const deleteEmployee = async (idEmployee) => {
+  const getEmployee = async (idEmployee) => {
     try {
-      const response = await deleteEmployeeRequest(idEmployee)
-      setEmployees(employees.filter(employee => employee.idEmployee !== idEmployee))
+      const response = await getEmployeeRequest(idEmployee)
+      return response.data
     } catch (error) {
       console.log(error);
     }
-
   }
 
   const createEmployee = async (employee) => {
@@ -41,5 +46,25 @@ export const EmployeeContextProvider = ({ children }) => {
     }
   }
 
-  return <EmployeeContext.Provider value={{ employees, loadEmployees, deleteEmployee, createEmployee }}> {children} </EmployeeContext.Provider>
+  const updateEmployee = async (idEmployee, newFields) => {
+    try {
+      const reponse = await updateEmployeeRequest(idEmployee, newFields)
+      console.log(reponse);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const deleteEmployee = async (idEmployee) => {
+    try {
+      const response = await deleteEmployeeRequest(idEmployee)
+      setEmployees(employees.filter(employee => employee.idEmployee !== idEmployee))
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+
+
+  return <EmployeeContext.Provider value={{ employees, loadEmployees, deleteEmployee, createEmployee, getEmployee, updateEmployee }}> {children} </EmployeeContext.Provider>
 }
