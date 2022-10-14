@@ -14,15 +14,21 @@ function EmployeesPage() {
       setEmployee(response.data);
     }
     loadEmployees()
-  }, [])
+  }, []);
+
+  function renderMain() {
+    if (employees.length === 0) return <h1>No employees yet</h1>
+
+    return employees.map(employee => (
+      <EmployeeCard employee={employee} key={employee.idEmployee} />
+    ))
+  }
   return (
     <>
       <h1>Employees</h1>
 
       {
-        employees.map(employee => (
-          <EmployeeCard employee={employee} key={employee.idEmployee} />
-        ))
+        renderMain()
       }
     </>
   )

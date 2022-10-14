@@ -7,3 +7,11 @@ export const getEmployeesRequest = async () => {
 export const createEmployeeRequest = async (task) => {
   return await axios.post("http://localhost:3000/api/employees", task)
 }
+
+
+
+
+
+export const deleteEmployeeRequest = async (id) => {
+  return await axios.delete(`http://localhost:3000/api/employees/${id}`)
+}
