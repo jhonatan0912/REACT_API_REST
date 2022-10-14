@@ -1,18 +1,15 @@
 import React from 'react'
-import { useEffect, useState } from "react";
-import { getEmployeesRequest } from "./../api/employee.api";
+import { useEffect } from "react";
 import EmployeeCard from "./../components/EmployeeCard.jsx";
+import { useEmployee } from "./../context/EmployeeProvider.jsx";
 
 function EmployeesPage() {
 
-  const [employees, setEmployee] = useState([])
+  const { employees, loadEmployees } = useEmployee()
 
   useEffect(() => {
-    console.log("Employees Page");
-    async function loadEmployees() {
-      const response = await getEmployeesRequest()
-      setEmployee(response.data);
-    }
+    // console.log("Employees Page");
+
     loadEmployees()
   }, []);
 

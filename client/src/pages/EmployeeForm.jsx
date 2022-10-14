@@ -1,9 +1,13 @@
 import React from 'react'
 import { Form, Formik } from "formik";
 import { createEmployeeRequest } from "./../api/employee.api.js";
-
+import { useEmployee } from './../context/EmployeeProvider'
 
 function EmployeeForm() {
+
+  const { text } = useEmployee()
+  console.log(text);
+
   return (
     <div>
       <h1>Register Employee</h1>
