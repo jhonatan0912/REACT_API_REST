@@ -21,13 +21,14 @@ function EmployeesPage() {
     ))
   }
   return (
-    <>
-      <h1>Employees</h1>
-
-      {
-        renderMain()
-      }
-    </>
+    <div className='overflow-x-hidden'>
+      <h1 className='text-3xl text-center py-5 font-bold underline'>Employees</h1>
+      <div className=' grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-3/5 m-auto'>
+        {
+          renderMain()
+        }
+      </div>
+    </div>
   )
 }
 

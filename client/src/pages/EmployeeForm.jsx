@@ -31,8 +31,8 @@ function EmployeeForm() {
   }, [])
 
   return (
-    <div>
-      <h1>{params.id ? "Edit employee" : "Register employee"}</h1>
+    <div className='h-screen  overflow-y-hidden'>
+      <h1 className='text-center font-bold text-4xl py-5'>{params.id ? "Edit employee" : "Register employee"}</h1>
       <Formik
         initialValues={employee}
         enableReinitialize={true}
@@ -43,6 +43,7 @@ function EmployeeForm() {
             navigate("/")
           } else {
             await createEmployee(values)
+            navigate("/")
           }
           // actions.resetForm()
           setEmployee({
@@ -54,15 +55,21 @@ function EmployeeForm() {
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
           <Form
             onSubmit={handleSubmit}
+            className='flex flex-col justify-center items-center gap-5 border-2 border-black w-3/12 p-5 m-auto rounded-lg'
           >
-            <label htmlFor="name">
-              <input type="text" name="name" placeholder='Write a name' onChange={handleChange} value={values.name} required />
+            <label className='flex gap-5' htmlFor="name">
+              Name:
+              <input className='rounded bg-transparent border-black border-2' type="text" name="name" placeholder='Write a name' onChange={handleChange} value={values.name} required />
             </label>
-            <label htmlFor="salary">
-              <input type="number" name="salary" placeholder='Write a salary' onChange={handleChange} min="1" value={values.salary} required />
+            <label className='flex gap-5' htmlFor="salary">
+              Salary:
+              <input className='rounded bg-transparent border-black border-2' type="number" name="salary" placeholder='Write a salary' onChange={handleChange} min="1" value={values.salary} required />
             </label>
             <label>
-              <button type='submit' disabled={isSubmitting}>{isSubmitting ? "Sabving..." : "Save"}</button>
+              <button
+                className='py-2 px-5 rounded text-white font-bold hover:scale-105 bg-black'
+                type='submit' disabled={isSubmitting}>{isSubmitting ? "Sabving..." : "Save"}
+              </button>
             </label>
           </Form>
         )}
