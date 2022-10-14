@@ -20,3 +20,5 @@ VALUES
 
 
 SELECT * FROM employee WHERE idEmployee=1;
+
+DELETE FROM employee WHERE idEmployee=2;
