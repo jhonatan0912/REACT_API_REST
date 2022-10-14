@@ -16,5 +16,5 @@ app.use((req, res, next) => {
   })
 })
 
-app.listen(3000)
-console.log("Server runing on port 3000");
+app.listen(7677)
+console.log("Server runing on port 7677");
