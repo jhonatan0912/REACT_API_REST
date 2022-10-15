@@ -31,7 +31,7 @@ function EmployeeForm() {
   }, [])
 
   return (
-    <div className='h-screen  overflow-y-hidden'>
+    <div className='h-screen'>
       <h1 className='text-center font-bold text-4xl py-5'>{params.id ? "Edit employee" : "Register employee"}</h1>
       <Formik
         initialValues={employee}
@@ -59,11 +59,11 @@ function EmployeeForm() {
           >
             <label className='flex gap-5' htmlFor="name">
               Name:
-              <input className='rounded bg-transparent border-black border-2' type="text" name="name" placeholder='Write a name' onChange={handleChange} value={values.name} required />
+              <input className='rounded bg-transparent border-black border-2 text-center' type="text" name="name" placeholder='Write a name' onChange={handleChange} value={values.name} required />
             </label>
             <label className='flex gap-5' htmlFor="salary">
               Salary:
-              <input className='rounded bg-transparent border-black border-2' type="number" name="salary" placeholder='Write a salary' onChange={handleChange} min="1" value={values.salary} required />
+              <input className='rounded bg-transparent border-black border-2 text-center' type="number" name="salary" placeholder='Write a salary' onChange={handleChange} min="1" value={values.salary} required />
             </label>
             <label>
               <button

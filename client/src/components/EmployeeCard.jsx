@@ -9,7 +9,7 @@ function EmployeeCard({ employee }) {
 
   return (
     <div className='card relative  border-2 rounded-lg border-black w-5/5  h-64 flex justify-center items-center flex-col gap-5'>
-      <div className='flex absolute top-0 left-5 font-black text-3xl'>
+      <div className='flex absolute top-0 left-5 font-black text-3xl hover:scale-110 cursor-pointer'>
         <div>.</div>
         <div>.</div>
         <div>.</div>
