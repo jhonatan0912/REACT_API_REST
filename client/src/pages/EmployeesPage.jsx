@@ -14,7 +14,7 @@ function EmployeesPage() {
   }, []);
 
   function renderMain() {
-    if (employees.length === 0) return <h1>No employees yet</h1>
+    if (employees.length === 0) return <h1 className='text-red-700 font-black text-4xl'>No employees yet</h1>
 
     return employees.map(employee => (
       <EmployeeCard employee={employee} key={employee.idEmployee} />

@@ -31,7 +31,7 @@ function EmployeeForm() {
   }, [])
 
   return (
-    <div className='h-screen'>
+    <div className='custom-height'>
       <h1 className='text-center font-bold text-4xl py-5'>{params.id ? "Edit employee" : "Register employee"}</h1>
       <Formik
         initialValues={employee}
@@ -55,7 +55,7 @@ function EmployeeForm() {
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
           <Form
             onSubmit={handleSubmit}
-            className='flex flex-col justify-center items-center gap-5 border-2 border-black w-3/12 p-5 m-auto rounded-lg'
+            className='flex flex-col justify-center items-center gap-5 border-2 border-black w-3/4 md:w-4/12 lg:w-3/12 p-5 m-auto rounded-lg'
           >
             <label className='flex gap-5' htmlFor="name">
               Name:
