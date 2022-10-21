@@ -8,8 +8,8 @@ export const getEmployeeRequest = async (id) => {
   return await axios.get(`http://localhost:3000/api/employees/${id}`)
 }
 
-export const createEmployeeRequest = async (task) => {
-  return await axios.post("http://localhost:3000/api/employees", task)
+export const createEmployeeRequest = async (employee) => {
+  return await axios.post("http://localhost:3000/api/employees", employee)
 }
 
 

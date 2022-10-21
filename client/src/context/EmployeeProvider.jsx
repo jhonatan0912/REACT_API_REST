@@ -65,6 +65,8 @@ export const EmployeeContextProvider = ({ children }) => {
 
   }
 
-
-  return <EmployeeContext.Provider value={{ employees, loadEmployees, deleteEmployee, createEmployee, getEmployee, updateEmployee }}> {children} </EmployeeContext.Provider>
+  return <EmployeeContext.Provider
+    value={{ employees, loadEmployees, deleteEmployee, createEmployee, getEmployee, updateEmployee }}>
+    {children}
+  </EmployeeContext.Provider>
 }
